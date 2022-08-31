@@ -105,7 +105,12 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
 
 #CLI
 
-proc gitdist(priority: string="bin", setup: bool=true, target: string) =
+proc gitdist(priority: string="bin", setup: bool=true, args: seq[string]) =
+  var target: string
+  try:
+    target = args[0]
+  except IndexDefect as e:
+    quit("Missing required argument <target>: gitdist [options] <target>")
   var client = newHttpClient()
   let resp = client.getContent(&"https://api.github.com/repos/{target}/contents/dist")
   let ou = evalContent(resp)
@@ -116,5 +121,4 @@ dispatch gitdist, help={
                         "priority": "Options: bin, env", 
                         "setup": "Options: true, false",
                         "help": "brings up this menu. Get further help at https://github.com/thatrandomperson5/gitdist",
-                        "target": "string in owner/repo format"
                         }
