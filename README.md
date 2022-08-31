@@ -9,6 +9,7 @@ Easily distribute your CLI tools from GitHub!
          * [Linux](https://github.com/thatrandomperson5/gitdist#linux)
      * [Manually](https://github.com/thatrandomperson5/gitdist#manually)
   * [Usage](https://github.com/thatrandomperson5/gitdist#usage)
+     * [Target](https://github.com/thatrandomperson5/gitdist#target)
   * [Usage for repo-owners](https://github.com/thatrandomperson5/gitdist#usage-for-repo-owners)
 * [Warnings](https://github.com/thatrandomperson5/gitdist#warnings)
   * [WIP](https://github.com/thatrandomperson5/gitdist#wip)
@@ -40,6 +41,7 @@ git clone https://github.com/thatrandomperson5/gitdist.git
 ```
 This will install to `/user/local/gitdist`, if it cannot acess that it will install in the current dir as `/gdist`
 ### Manually
+(Should work on all devices with git)
 1. Run this command:
    ```
    git clone https://github.com/thatrandomperson5/gitdist.git
@@ -51,6 +53,15 @@ This will install to `/user/local/gitdist`, if it cannot acess that it will inst
 6. Create an alias to `gdist` if you want.
 
 ## Usage
+**Command**: `gitdist`
+
+**Aliases**: `gdist` Note: Only for auto-install or if otherwise set
+
+**Info**: `gitdist --help`
+### `gitdist [<options>] <target>`
+|Options|Details|
+|-|-|
+#### Target
 ## Usage for repo-owners
 # Warnings
 ## WIP
