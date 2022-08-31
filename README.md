@@ -13,4 +13,4 @@ Easily distribute your CLI tools from GitHub!
 |NixOS|Lower prio| 
 
 # WIP
-This project is currently un-usable
+This project is currently **In development**
