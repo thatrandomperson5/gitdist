@@ -59,8 +59,11 @@ This will install to `/user/local/gitdist`, if it cannot acess that it will inst
 
 **Info**: `gitdist --help`
 ### `gitdist [<options>] <target>`
-|Options|Details|
-|-|-|
+|Options|Details|Values|Default/Required|
+|-|-|-|-|
+|`-h`, `--help`|Brings up a help menu|Flag(True/False)|False|
+|`-p=`, `--priority=`|Set what to install if both bin (`.bin`) and env exist|`bin`/`env`|`bin`|
+|`-s`, `--setup`|If gitdist should run `setup.sh` or `setup.bat`|Flag(True/False)|True|
 #### Target
 The target in `owner/repo` format.
 Example:
