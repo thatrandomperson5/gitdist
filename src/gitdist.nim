@@ -76,6 +76,12 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
   let node = parseJson(api_resp)
   echo dwn_out
   client.downloadFile(node["download_url"].getStr(), dwn_out)
+  if dwn_out.parentDir() == "/bin":
+    if mapping[tg].hasKey("binzipped"):
+      discard execShellCmd(&"gzip -d {dwn_out}")
+  else:
+    if mapping[tg].hasKey("envzipped"):
+      discard execShellCmd(&"gzip -d {dwn_out}")
   if run_setup:
     if mapping[tg].hasKey("setup"):
       let item = mapping[tg]["setup"]
@@ -89,13 +95,26 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
         discard execShellCmd(&"{dwn_out.parentDir()}/{item}")
        
       
-var client = newHttpClient()
+#
     
-const target = "thatrandomperson5/gamebin1"
-let resp = client.getContent(&"https://api.github.com/repos/{target}/contents/dist")
-let ou = evalContent(resp)
-get_dist(target, ou)
+#const target = "thatrandomperson5/gamebin1"
+#let resp = client.getContent(&"https://api.github.com/repos/{target}/contents/dist")
+#let ou = evalContent(resp)
+#get_dist(target, ou)
 
 
 #CLI
 
+proc gitdist(priority: string="bin", setup: bool=true, target: string) =
+  var client = newHttpClient()
+  let resp = client.getContent(&"https://api.github.com/repos/{target}/contents/dist")
+  let ou = evalContent(resp)
+  get_dist(target, ou, priority, setup)
+
+import cligen
+dispatch gitdist, help={
+                        "priority": "Options: bin, env", 
+                        "setup": "Options: true, false",
+                        "help": "brings up this menu. Get further help at https://github.com/thatrandomperson5/gitdist",
+                        "target": "string in owner/repo format"
+                        }
