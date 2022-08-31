@@ -71,6 +71,17 @@ Example:
 gitdist thatrandomperson5/gitdist
 ```
 ## Usage for repo-owners
+Create a dist directory in your repo, then put corresponding dist files inside(Listed below)
+|Extention|Usage|Type|
+|-|-|-|
+|`.sh`|Setup script for macos and linux|setup|
+|`.bat`|Setup script for windows|setup|
+|`.bin`|Bin file for linux|bin|
+|`.exe`|Env file for windows|env|
+|`.bin.tar`|Tar compressed bin file for linux (**UNTESTED**)|bin|
+|`.tar`|Tar compressed env file for linux (**UNTESTED**)|env|
+|`.*`|Anything else, Env file for linux|env|
+Run the command `gitdist yourname/yourepo` to test.
 # Warnings
 ## WIP
 This project is currently **In development**
