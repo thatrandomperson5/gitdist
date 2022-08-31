@@ -4,7 +4,7 @@ import std/json
 import std/strformat
 import std/strutils
 import std/tables
-
+import std/os
 
 
 proc evalContent(rp: string): Table[string, Table[string, string]] =
@@ -51,19 +51,45 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
   var dwn_out: string
   if mapping[tg].hasKey(prio):
     let item = mapping[tg][prio]
+    if getAppDir().parentDir().endswith("/gitdist"): #For release versions
+      dwn_out = &"{getAppDir().parentDir()}/files/{item}"
+    else: #For debugging
+      dwn_out = &"{getAppDir().parentDir().parentDir()}/gitdist/files/{item}"
+    if prio == "bin":
+      dwn_out = &"/bin/{item}"
     ourl = &"https://api.github.com/repos/{url}/contents/dist/{item}"
   else:
     var notprio: string = "env"
-    dwn_out = ""
+
     if prio == "env":
       notprio = "bin"
     let item = mapping[tg][notprio]
+    if getAppDir().parentDir().endswith("/gitdist"): #For release versions
+      dwn_out = &"{getAppDir().parentDir()}/files/{item}"
+    else: #For debugging
+      dwn_out = &"{getAppDir().parentDir().parentDir()}/gitdist/files/{item}"
+    if notprio == "bin":
+      dwn_out = &"/bin/{item}"
     ourl = &"https://api.github.com/repos/{url}/contents/dist/{item}"
   var client = newHttpClient()
   let api_resp = client.getContent(ourl)
   let node = parseJson(api_resp)
-  
+  echo dwn_out
   client.downloadFile(node["download_url"].getStr(), dwn_out)
+  if run_setup:
+    if mapping[tg].hasKey("setup"):
+      let item = mapping[tg]["setup"]
+      let surl = &"https://api.github.com/repos/{url}/contents/dist/{item}"
+      let rp = client.getContent(surl)
+      let js = parseJson(rp)
+      client.downloadFile(js["download_url"].getStr(), &"{dwn_out.parentDir()}/{item}")
+      if item.endswith(".sh"):
+        discard execShellCmd(&"sh {dwn_out.parentDir()}/{item}")
+      else:
+        discard execShellCmd(&"{dwn_out.parentDir()}/{item}")
+       
+      
+      
     
 
 #let resp = client.getContent("https://api.github.com/repos/thatrandomperson5/gamebin1/contents/dist")
