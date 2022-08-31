@@ -62,6 +62,11 @@ This will install to `/user/local/gitdist`, if it cannot acess that it will inst
 |Options|Details|
 |-|-|
 #### Target
+The target in `owner/repo` format.
+Example:
+```
+gitdist thatrandomperson5/gitdist
+```
 ## Usage for repo-owners
 # Warnings
 ## WIP
