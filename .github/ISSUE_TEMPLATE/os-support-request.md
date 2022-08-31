@@ -12,9 +12,9 @@ assignees: thatrandomperson5
 Name it here!
 
 ## Check off the following
-- [] My OS is **not** a version of another os
-- [] My OS is not already on the list of **will support soon**
-- [] My OS does not support any file types from the supported or will be supported OS’s.
+- [ ] My OS is **not** a version of another os
+- [ ] My OS is not already on the list of **will support soon**
+- [ ] My OS does not support any file types from the supported or will be supported OS’s.
 
 ## Additional context
 
