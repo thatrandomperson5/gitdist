@@ -2,8 +2,8 @@
 name: OS support request
 about: Name a os you wan’t to be supported
 title: XXXX OS support
-labels: ''
-assignees: ''
+labels: OS request
+assignees: thatrandomperson5
 
 ---
 
