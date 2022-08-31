@@ -1,14 +1,14 @@
 # GitDist
 Easily distribute your CLI tools from GitHub!
 ### Table of contents
-* GitDist
-  * Supported OS
+* [GitDist](https://github.com/thatrandomperson5/gitdist#gitdist)
+  * [Supported OS](https://github.com/thatrandomperson5/gitdist#supported-os)
   * [Contributing](https://github.com/thatrandomperson5/gitdist/blob/main/CONTRIBUTING.md#contributing)
-  * Installation
-  * Usage
-  * Usage for repo-owners
-* Warnings
-  * WIP
+  * [Installation](https://github.com/thatrandomperson5/gitdist#installation)
+  * [Usage](https://github.com/thatrandomperson5/gitdist#usage)
+  * [Usage for repo-owners](https://github.com/thatrandomperson5/gitdist#usage-for-repo-owners)
+* [Warnings](https://github.com/thatrandomperson5/gitdist#warnings)
+  * [WIP](https://github.com/thatrandomperson5/gitdist#wip)
 ## Supported OS
 
 |Supported|Notes|
