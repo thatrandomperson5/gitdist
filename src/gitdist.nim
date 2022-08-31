@@ -33,14 +33,19 @@ proc evalContent(rp: string): Table[string, Table[string, string]] =
     else:
       dataset["linux"]["env"] = x
   return dataset
-  if defined(linux):
-    echo "Operating System is GNU Linux"
-  elif defined(windows):
-    echo "Operating System is Microsoft Windows"
-  elif defined(macosx):
-    quit("OSX not supported.")
-  
 
+  
+proc get_dist(mapping: Table[string, Table[string, string]], prio: string="bin", run_setup: bool=true) =
+  var tg: string
+  if defined(linux):
+    tg = "linux"
+  elif defined(windows):
+    tg = "windows"
+  elif defined(macosx):
+    quit("OSX not yet supported.") #Remove when supported
+    tg = "macosx"
+  else:
+    quit("Your os is not supported. If you want it to be supported please go to [https://github.com/thatrandomperson5/gitdist/issues/new/choose] and open a OS-support issue")
 
 let resp = client.getContent("https://api.github.com/repos/thatrandomperson5/gamebin1/contents/dist")
 let ou = "setup.sh"#evalContent(resp)
