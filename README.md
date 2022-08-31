@@ -81,6 +81,7 @@ Create a dist directory in your repo, then put corresponding dist files inside(L
 |`.bin.tar`|Tar compressed bin file for linux (**UNTESTED**)|bin|
 |`.tar`|Tar compressed env file for linux (**UNTESTED**)|env|
 |`.*`|Anything else, Env file for linux|env|
+
 Run the command `gitdist yourname/yourepo` to test.
 # Warnings
 ## WIP
