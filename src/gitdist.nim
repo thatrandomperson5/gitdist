@@ -74,7 +74,7 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
   var client = newHttpClient()
   let api_resp = client.getContent(ourl)
   let node = parseJson(api_resp)
-  echo dwn_out
+  echo &"Downloading to: {dwn_out}"
   client.downloadFile(node["download_url"].getStr(), dwn_out)
   if dwn_out.parentDir() == "/bin":
     if mapping[tg].hasKey("binzipped"):
@@ -112,9 +112,12 @@ proc gitdist(priority: string="bin", setup: bool=true, args: seq[string]) =
   except IndexDefect as e:
     quit("Missing required argument <target>: gitdist [options] <target>")
   var client = newHttpClient()
+  echo "Searching..."
   let resp = client.getContent(&"https://api.github.com/repos/{target}/contents/dist")
   let ou = evalContent(resp)
+  echo "Downloading..."
   get_dist(target, ou, priority, setup)
+  echo "~Installed~"
 
 import cligen
 dispatch gitdist, help={
