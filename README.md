@@ -26,6 +26,11 @@ Easily distribute your CLI tools from GitHub!
 ## [Contributing](https://github.com/thatrandomperson5/gitdist/blob/main/CONTRIBUTING.md#contributing)
 ## Installation
 How to install this tool!
+
+For updating(In the futre, not right now) run this:
+```
+gitdist thatrandomperson5/gitdist
+```
 ### Automated
 Run the below depending on your device
 #### Linux
@@ -42,7 +47,8 @@ This will install to `/user/local/gitdist`, if it cannot acess that it will inst
 2. Then move `gitdist/dist/gitdist` from the cloned repo into `gitdist/gitdist` directory.
 3. Move the `gitdist/gitdist` directory to a preferred location
 4. Add these two paths to your PATH(`~` means the location that you moved the gitdist dir to): `~/gitdist/`, `~/gitdist/files`
-5. Create an alias to `gdist` if you want.
+5. Delete the cloned repo
+6. Create an alias to `gdist` if you want.
 
 ## Usage
 ## Usage for repo-owners
