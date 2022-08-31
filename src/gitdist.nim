@@ -51,10 +51,10 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
   var dwn_out: string
   if mapping[tg].hasKey(prio):
     let item = mapping[tg][prio]
-    if getAppDir().parentDir().endswith("/gitdist"): #For release versions
-      dwn_out = &"{getAppDir().parentDir()}/files/{item}"
+    if getAppDir().endswith("/gitdist"): #For release versions
+      dwn_out = &"{getAppDir()}/files/{item}"
     else: #For debugging
-      dwn_out = &"{getAppDir().parentDir().parentDir()}/gitdist/files/{item}"
+      dwn_out = &"{getAppDir().parentDir()}/gitdist/files/{item}"
     if prio == "bin":
       dwn_out = &"/bin/{item}"
     ourl = &"https://api.github.com/repos/{url}/contents/dist/{item}"
@@ -64,10 +64,10 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
     if prio == "env":
       notprio = "bin"
     let item = mapping[tg][notprio]
-    if getAppDir().parentDir().endswith("/gitdist"): #For release versions
-      dwn_out = &"{getAppDir().parentDir()}/files/{item}"
+    if getAppDir().endswith("/gitdist"): #For release versions
+      dwn_out = &"{getAppDir()}/files/{item}"
     else: #For debugging
-      dwn_out = &"{getAppDir().parentDir().parentDir()}/gitdist/files/{item}"
+      dwn_out = &"{getAppDir().parentDir()}/gitdist/files/{item}"
     if notprio == "bin":
       dwn_out = &"/bin/{item}"
     ourl = &"https://api.github.com/repos/{url}/contents/dist/{item}"
@@ -89,11 +89,12 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
         discard execShellCmd(&"{dwn_out.parentDir()}/{item}")
        
       
-      
+var client = newHttpClient()
     
-
-#let resp = client.getContent("https://api.github.com/repos/thatrandomperson5/gamebin1/contents/dist")
-#let ou = "setup.sh"#evalContent(resp)
+const target = "thatrandomperson5/gamebin1"
+let resp = client.getContent(&"https://api.github.com/repos/{target}/contents/dist")
+let ou = evalContent(resp)
+get_dist(target, ou)
 
 
 #CLI
