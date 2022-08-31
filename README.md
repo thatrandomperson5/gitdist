@@ -1,5 +1,14 @@
-# gitdist
+# GitDist
 Easily distribute your CLI tools from GitHub!
+### Table of contents
+* GitDist
+  * Supported OS
+  * [Contributing](https://github.com/thatrandomperson5/gitdist/blob/main/CONTRIBUTING.md#contributing)
+  * Installation
+  * Usage
+  * Usage for repo-owners
+* Warnings
+  * WIP
 ## Supported OS
 
 |Supported|Notes|
@@ -11,6 +20,10 @@ Easily distribute your CLI tools from GitHub!
 |-----------------|-----|
 |MacOS|Highest prio|
 |NixOS|Lower prio| 
-
-# WIP
+## [Contributing](https://github.com/thatrandomperson5/gitdist/blob/main/CONTRIBUTING.md#contributing)
+## Installation
+## Usage
+## Usage for repo-owners
+# Warnings
+## WIP
 This project is currently **In development**
