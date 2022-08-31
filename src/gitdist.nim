@@ -95,3 +95,6 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
 #let resp = client.getContent("https://api.github.com/repos/thatrandomperson5/gamebin1/contents/dist")
 #let ou = "setup.sh"#evalContent(resp)
 
+
+#CLI
+
