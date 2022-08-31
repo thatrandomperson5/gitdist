@@ -1,12 +1,11 @@
 #GDIST
 import std/httpclient
-import std/distros
 import std/json
 import std/strformat
 import std/strutils
 import std/tables
 
-var client = newHttpClient()
+
 
 proc evalContent(rp: string): Table[string, Table[string, string]] =
   let js = rp.parseJson()
@@ -35,7 +34,7 @@ proc evalContent(rp: string): Table[string, Table[string, string]] =
   return dataset
 
   
-proc get_dist(mapping: Table[string, Table[string, string]], prio: string="bin", run_setup: bool=true) =
+proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: string="bin", run_setup: bool=true) =
   var tg: string
   if defined(linux):
     tg = "linux"
@@ -46,9 +45,27 @@ proc get_dist(mapping: Table[string, Table[string, string]], prio: string="bin",
     tg = "macosx"
   else:
     quit("Your os is not supported. If you want it to be supported please go to [https://github.com/thatrandomperson5/gitdist/issues/new/choose] and open a OS-support issue")
+  var ourl: string
+  if not mapping.hasKey(tg):
+    quit(&"This project does not support your os: {tg}")
+  var dwn_out: string
+  if mapping[tg].hasKey(prio):
+    let item = mapping[tg][prio]
+    ourl = &"https://api.github.com/repos/{url}/contents/dist/{item}"
+  else:
+    var notprio: string = "env"
+    dwn_out = ""
+    if prio == "env":
+      notprio = "bin"
+    let item = mapping[tg][notprio]
+    ourl = &"https://api.github.com/repos/{url}/contents/dist/{item}"
+  var client = newHttpClient()
+  let api_resp = client.getContent(ourl)
+  let node = parseJson(api_resp)
+  
+  client.downloadFile(node["download_url"].getStr(), dwn_out)
+    
 
-let resp = client.getContent("https://api.github.com/repos/thatrandomperson5/gamebin1/contents/dist")
-let ou = "setup.sh"#evalContent(resp)
-let api_resp = client.getContent(&"https://api.github.com/repos/thatrandomperson5/gamebin1/contents/dist/{ou}")
-let node = parseJson(api_resp)
-client.downloadFile(node["download_url"].getStr(), "rd.sh")
+#let resp = client.getContent("https://api.github.com/repos/thatrandomperson5/gamebin1/contents/dist")
+#let ou = "setup.sh"#evalContent(resp)
+
