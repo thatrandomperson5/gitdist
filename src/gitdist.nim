@@ -1,4 +1,4 @@
-#https://api.github.com/repos/community/community/contents/README.md
+#GDIST
 import std/httpclient
 import std/distros
 import std/json
