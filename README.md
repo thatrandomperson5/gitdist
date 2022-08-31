@@ -5,6 +5,8 @@ Easily distribute your CLI tools from GitHub!
   * [Supported OS](https://github.com/thatrandomperson5/gitdist#supported-os)
   * [Contributing](https://github.com/thatrandomperson5/gitdist/blob/main/CONTRIBUTING.md#contributing)
   * [Installation](https://github.com/thatrandomperson5/gitdist#installation)
+     * [Automated](https://github.com/thatrandomperson5/gitdist#automated)
+     * [Manually](https://github.com/thatrandomperson5/gitdist#manually)
   * [Usage](https://github.com/thatrandomperson5/gitdist#usage)
   * [Usage for repo-owners](https://github.com/thatrandomperson5/gitdist#usage-for-repo-owners)
 * [Warnings](https://github.com/thatrandomperson5/gitdist#warnings)
@@ -22,6 +24,8 @@ Easily distribute your CLI tools from GitHub!
 |NixOS|Lower prio| 
 ## [Contributing](https://github.com/thatrandomperson5/gitdist/blob/main/CONTRIBUTING.md#contributing)
 ## Installation
+### Automated
+### Manually
 ## Usage
 ## Usage for repo-owners
 # Warnings
