@@ -19,7 +19,7 @@ Easily distribute your CLI tools from GitHub!
 |Supported|Notes|
 |---------|-----|
 |Linux|Most versions of linux should work, although some might not. Supporting all linux versions is a low priority.|
-|Windows|Only bultin code, not yet compiled|
+|Windows|Support will be slow.|
 
 |Will be Supported|Notes|
 |-----------------|-----|
