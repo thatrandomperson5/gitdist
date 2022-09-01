@@ -39,7 +39,7 @@ Run the below depending on your device
 git clone https://github.com/thatrandomperson5/gitdist.git
 . ./gdist/setup.sh
 ```
-This will install to `/user/local/gitdist`, if it cannot acess that it will install in the current dir as `/gdist`
+This will install to `/user/local/gitdist`. if it cannot acess that it will install in the current dir as `/gdist`, this is unavoidable and the directory must be re-named to `/gitdist`.
 ### Manually
 (Should work on all devices with git)
 1. Run this command:
