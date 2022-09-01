@@ -28,7 +28,7 @@ Easily distribute your CLI tools from GitHub!
 ## Installation
 How to install this tool!
 
-For updating(In the futre, not right now) run this:
+For updating run this:
 ```
 gitdist thatrandomperson5/gitdist
 ```
