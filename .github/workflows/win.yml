@@ -12,7 +12,7 @@ jobs:
        - uses: actions/checkout@v3
        - uses: jiro4989/setup-nim-action@v1
          with:
-            nim-version: '1.6.0'
+            nim-version: '1.6.6'
        - run: nimble install cligen --accept
        - run: nim compile -o:dist/gitdist.exe -d:ssl src/gitdist.nim
        - name: Create Pull Request
