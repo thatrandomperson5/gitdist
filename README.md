@@ -13,6 +13,7 @@ Easily distribute your CLI tools from GitHub!
   * [Usage for repo-owners](https://github.com/thatrandomperson5/gitdist#usage-for-repo-owners)
 * [Warnings](https://github.com/thatrandomperson5/gitdist#warnings)
   * [WIP](https://github.com/thatrandomperson5/gitdist#wip)
+* [Verified Packages](https://github.com/thatrandomperson5/gitdist#verified-packages)
 ## Supported OS
 
 |Supported|Notes|
@@ -86,3 +87,4 @@ Run the command `gitdist yourname/yourepo` to test.
 # Warnings
 ## WIP
 This project is currently **In development**
+# Verified Packages
