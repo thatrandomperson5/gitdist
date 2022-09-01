@@ -89,6 +89,6 @@ Run the command `gitdist yourname/yourepo` to test.
 This project is currently **In development**
 # Verified Listings
 To get your tool listed it must follow the requirments below:
-* [X] Any setup files delete themselves
-* [X] The tool does not modify the installer
-* [X] The tool does not damage the users system
+- [X] Any setup files delete themselves
+- [X] The tool does not modify the installer
+- [X] The tool does not damage the users system
