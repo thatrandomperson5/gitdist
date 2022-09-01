@@ -1,0 +1,22 @@
+
+
+name: WIN
+
+on: [workflow_dispatch]
+
+jobs:
+   compile:
+     name: Compile
+     runs-on: windows-latest
+     steps:
+       - uses: actions/checkout@v3
+       - uses: jiro4989/setup-nim-action@v1
+         with:
+            nim-version: '1.6.0'
+       - run: nim compile -o:dist/gitdist.exe -d:ssl src/gitdist.nim
+       - name: Save
+         uses: stefanzweifel/git-auto-commit-action@v4
+         with:
+            commit_message: Compile windows
+       
+     
