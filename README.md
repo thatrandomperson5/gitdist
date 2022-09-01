@@ -8,6 +8,7 @@ Easily distribute your CLI tools from GitHub!
   * [Installation](https://github.com/thatrandomperson5/gitdist#installation)
      * [Automated](https://github.com/thatrandomperson5/gitdist#automated)
          * [Linux](https://github.com/thatrandomperson5/gitdist#linux)
+         * [Windows](https://github.com/thatrandomperson5/gitdist#windows)
      * [Manually](https://github.com/thatrandomperson5/gitdist#manually)
   * [Usage](https://github.com/thatrandomperson5/gitdist#usage)
      * [Target](https://github.com/thatrandomperson5/gitdist#target)
