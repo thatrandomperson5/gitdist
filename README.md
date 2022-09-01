@@ -47,7 +47,7 @@ This will install to `/user/local/gitdist`. if it cannot acess that it will inst
    ```
    git clone https://github.com/thatrandomperson5/gitdist.git
    ```
-2. Then move `gitdist/dist/gitdist(.exe)` from the cloned repo into `gitdist/gitdist` directory.
+2. Then move `gitdist/dist/gitdist(.exe)` from the cloned repo into `gitdist/gitdist` directory. **NOTE:** for windows you will have to put [this file](https://curl.se/ca/cacert.pem) in with `gitdist.exe`
 3. Move the `gitdist/gitdist` directory to a preferred location
 4. Add these two paths to your PATH(`~` means the location that you moved the gitdist dir to): `~/gitdist/`, `~/gitdist/files`
 5. Delete the cloned repo
