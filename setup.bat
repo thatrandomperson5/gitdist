@@ -7,4 +7,4 @@
 @reg add "HKCU\Environment" /v Path /d "%path%;%USERPROFILE%\gitdist;%USERPROFILE%\gitdist\files" /t REG_SZ /f 
 @call "%here%\envupdate"
 @echo Setup Complete
-@rrd /s /q "%here%"
+@rd /s /q "%here%"
