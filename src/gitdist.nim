@@ -12,7 +12,9 @@ proc evalContent(rp: string): Table[string, Table[string, string]] =
   var lst: seq[string]
   for x in js:
     lst.add(x["name"].getStr())
-  var dataset: Table[string, Table[string, string]] = {"macosx": {"cr": "cr"}.toTable, "linux": {"cr":"cr"}.toTable, "windows": {"cr": "cr"}.toTable}.toTable
+  var dataset: Table[string, Table[string, string]] = {"macosx": {
+      "cr": "cr"}.toTable, "linux": {"cr": "cr"}.toTable, "windows": {
+      "cr": "cr"}.toTable}.toTable
   for x in lst:
     if x.endswith(".sh"):
       dataset["macosx"]["setup"] = x
@@ -33,8 +35,9 @@ proc evalContent(rp: string): Table[string, Table[string, string]] =
       dataset["linux"]["env"] = x
   return dataset
 
-  
-proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: string="bin", run_setup: bool=true) =
+
+proc get_dist(url: string, mapping: Table[string, Table[string, string]],
+    prio: string = "bin", run_setup: bool = true) =
   var tg: string
   if defined(linux):
     tg = "linux"
@@ -88,15 +91,16 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
       let surl = &"https://api.github.com/repos/{url}/contents/dist/{item}"
       let rp = client.getContent(surl)
       let js = parseJson(rp)
-      client.downloadFile(js["download_url"].getStr(), &"{dwn_out.parentDir()}/{item}")
+      client.downloadFile(js["download_url"].getStr(),
+          &"{dwn_out.parentDir()}/{item}")
       if item.endswith(".sh"):
         discard execShellCmd(&"sh {dwn_out.parentDir()}/{item}")
       else:
         discard execShellCmd(&"{dwn_out.parentDir()}/{item}")
-       
-      
+
+
 #
-    
+
 #const target = "thatrandomperson5/gamebin1"
 #let resp = client.getContent(&"https://api.github.com/repos/{target}/contents/dist")
 #let ou = evalContent(resp)
@@ -105,7 +109,7 @@ proc get_dist(url: string, mapping: Table[string, Table[string, string]], prio: 
 
 #CLI
 
-proc gitdist(priority: string="bin", setup: bool=true, args: seq[string]) =
+proc gitdist(priority: string = "bin", setup: bool = true, args: seq[string]) =
   var target: string
   try:
     target = args[0]
@@ -120,8 +124,8 @@ proc gitdist(priority: string="bin", setup: bool=true, args: seq[string]) =
   echo "~Installed~"
 
 import cligen
-dispatch gitdist, help={
-                        "priority": "Options: bin, env", 
+dispatch gitdist, help = {
+                        "priority": "Options: bin, env",
                         "setup": "Options: true, false",
                         "help": "brings up this menu. Get further help at https://github.com/thatrandomperson5/gitdist",
-                        }
+  }
