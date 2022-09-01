@@ -2,3 +2,4 @@
 **.breakpoints
 **/replit.nix
 **/run.sh
+/init.sh
