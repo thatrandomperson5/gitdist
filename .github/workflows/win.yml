@@ -13,10 +13,17 @@ jobs:
        - uses: jiro4989/setup-nim-action@v1
          with:
             nim-version: '1.6.0'
+       - run: nimble install cligen
        - run: nim compile -o:dist/gitdist.exe -d:ssl src/gitdist.nim
-       - name: Save
-         uses: stefanzweifel/git-auto-commit-action@v4
+       - name: Create Pull Request
+         uses: peter-evans/create-pull-request@v3
          with:
-            commit_message: Compile windows
+           token: ${{ secrets.GITHUB_TOKEN }}
+           title: "Compiled for Windows"
+           commit-message: "Compiled for windows"
+           body: |
+            Compiled for windows, please review and merge
+           base: ${{ github.head_ref }} # Creates pull request onto pull request or commit branch
+           branch: actions/compile
        
      
