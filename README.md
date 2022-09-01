@@ -92,5 +92,6 @@ To get your tool listed it must follow the requirments below:
 - [X] Any setup files delete themselves
 - [X] The tool does not modify the installer
 - [X] The tool does not damage the users system
+- [X] The tools external files are not located in the `gitdist/files` directory
 ### List:
 **None yet 😔**
