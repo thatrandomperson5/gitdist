@@ -1,5 +1,9 @@
 # GitDist
 Easily distribute your CLI tools from GitHub!
+
+Note format: **Note:** sign version_note_applies_to
+
+Example: **Note >= 0.1.0**: stuff
 ### Table of contents
 * [GitDist](https://github.com/thatrandomperson5/gitdist#gitdist)
   * [Supported OS](https://github.com/thatrandomperson5/gitdist#supported-os)
@@ -47,7 +51,7 @@ This will install to `/user/local/gitdist`. if it cannot acess that it will inst
    ```
    git clone https://github.com/thatrandomperson5/gitdist.git
    ```
-2. Then move `gitdist/dist/gitdist(.exe)` from the cloned repo into `gitdist/gitdist` directory. **NOTE:** for windows you will have to put [this file](https://curl.se/ca/cacert.pem) in with `gitdist.exe`
+2. Then move `gitdist/dist/gitdist(.exe)` from the cloned repo into `gitdist/gitdist` directory. **NOTE <= 0.1.0:** for windows you will have to put [this file](https://curl.se/ca/cacert.pem) in with `gitdist.exe`
 3. Move the `gitdist/gitdist` directory to a preferred location
 4. Add these two paths to your PATH(`~` means the location that you moved the gitdist dir to): `~/gitdist/`, `~/gitdist/files`
 5. Delete the cloned repo
