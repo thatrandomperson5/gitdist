@@ -1,1 +1,2 @@
 **/*-helper.bat linguist-detectable
+**/config.nims linguist-language="Nim config"
