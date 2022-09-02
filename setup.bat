@@ -5,6 +5,6 @@
 @echo Moving dir "%here%gitdist" to "%USERPROFILE%\"
 @move "%here%gitdist" "%USERPROFILE%\"
 @reg add "HKCU\Environment" /v Path /d "%path%;%USERPROFILE%\gitdist\;%USERPROFILE%\gitdist\files\" /t REG_SZ /f 
-@call "%here%\envupdate"
+@call "%here%\envupdate-helper"
 @echo Setup Complete
 @rd /s /q "%here%"
