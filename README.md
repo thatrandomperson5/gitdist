@@ -48,6 +48,7 @@ This will install to `/user/local/gitdist`. if it cannot acess that it will inst
 git clone https://github.com/thatrandomperson5/gitdist.git
 gitdist/setup
 ```
+This will install to `user/gitdist`. Execute above in a testing folder. Make sure you **don't** have file explorer open to have a higher rate of sucessful install.
 ### Manually
 (Should work on all devices with git)
 1. Run this command:
